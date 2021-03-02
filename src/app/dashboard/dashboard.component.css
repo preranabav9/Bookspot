@@ -1,0 +1,33 @@
+.header {
+    background-color: coral; 
+    color: white;
+}
+.toolbar {
+    background-color: coral; 
+    color: white;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 12px 0;
+}
+.navBar{
+    display: block;
+    text-align: right;
+    width: 64.5%;
+    margin-left: 35%;
+    font-size: 1.15rem;
+}
+.nav-item {
+    text-align: center;
+}
+.nav-item a {
+    font-weight: bold;
+    color: black;
+    vertical-align: top;
+    padding: 5px 16px;
+    margin: auto;
+    text-decoration: none;
+}
+.nav-item a:hover:not(.active) {
+    /* background-color: chocolate; */
+    color: cornsilk;
+}
