@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  isAuthenicate: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.isAuthenicate = false;
   }
 
 }
