@@ -1,0 +1,29 @@
+
+<div class="wrapper">
+    <app-header></app-header>
+        <div class="jumbotron book">
+            <div class="row">
+                <div class="col-9">
+                    <h1>{{ book?.volumeInfo?.title}}</h1>
+                    <h3>{{ book?.volumeInfo?.authors }}</h3>
+                    <p class="lead description">{{ book?.volumeInfo?.description }}</p>
+                    <p><a href="{{ book?.accessInfo?.webReaderLink  }}" target="_blank" class="btn btn-info ">Start Reading</a></p>
+                </div>
+                <div class="col-3 text-center">
+                    <img class="img-thumbnail" src="{{ book?.volumeInfo?.imageLinks?.thumbnail }}" alt="book cover page" width="200px" height="250px"/>
+                </div>
+            </div>
+            <hr/>
+            <div class="review">
+                <h2>REVIEWS</h2>
+                <div class="review-button">
+                    <a class="review-policy" href="https://play.google.com/about/comment-posting-policy/" target="_blank">
+                        <span><img width="13px" height="13px" src="../../assets/icon/info-circle-solid.svg" alt="info icon"/></span>
+                        <span class="review-policy-text">Review policy & Info</span>
+                    </a><br/>
+                    <button class="btn btn-light" style="border: 1px solid grey;margin-top: 2%;" (click)="openDialog()"><img width="15px" height="15px" style="vertical-align: middle;" src="../../assets/icon/pen-solid.svg"> Write a Review</button>
+                </div>
+            </div>
+        </div>
+    <app-footer></app-footer>
+</div>

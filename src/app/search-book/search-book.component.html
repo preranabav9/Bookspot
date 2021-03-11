@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <app-header></app-header>
+    <div class="genres-example-list">
+        <div class="genre-example" *ngFor="let book of categoryBooks">
+            <mat-card class="example-card genre-card">
+                <mat-card-header>
+                    <mat-card-title matTooltip="{{ book?.volumeInfo?.title }}">{{ book?.volumeInfo?.title?.length > 25 ? book?.volumeInfo?.title.substr(0, 25) + "..." : book?.volumeInfo?.title }}</mat-card-title>
+                    <mat-card-subtitle>{{ book?.volumeInfo?.authors[0] }}</mat-card-subtitle>
+                </mat-card-header>
+                <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.volumeInfo?.industryIdentifiers[0].identifier }"><img mat-card-image src="{{ book?.volumeInfo?.imageLinks?.thumbnail }}" alt="Book cover" height="250px"></a>
+                <mat-card-content>
+                    <p>
+                        {{ book?.volumeInfo?.description.substr(0, 65) + "..." }} <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.volumeInfo?.industryIdentifiers[0].identifier }">Show more</a>
+                    </p>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+            </mat-card>
+        </div>
+    <app-footer></app-footer>
+</div>

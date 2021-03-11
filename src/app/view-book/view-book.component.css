@@ -1,0 +1,33 @@
+.book {
+    height: 700px;
+    margin: 7%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.description{
+    font-size: small;
+    line-height: 25px;
+}
+.review-policy {
+    padding-right: 8%;
+    float: right;
+    margin-left: 10px;
+    position: relative;
+    text-decoration: none;
+}
+.review-policy-text {
+    vertical-align: middle;
+    font-size: 12px;
+    color: black;
+}
+.btn-light {
+    background-color: white;
+}
+.review-button {
+    float: right;
+    position: relative;
+    margin-left: 2%;
+}
+.btn-light:hover {
+    box-shadow: 0 3px 0 #9b9e9c;
+    background-color: white;
+}
