@@ -1,1 +1,89 @@
-<p>register works!</p>
+<!-- main app container -->
+  <div class="container" >
+    <div class="logo">Create a new account!</div>
+          <br><br>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                  <div class="form-group">
+                      
+    
+                    <span class="hidden"> FirstName</span>
+                    <div class="input-container">
+                    <i class="fa fa-user icon fa-2x"></i>
+                      <input type="text" formControlName="firstName" class="form-control"
+                       placeholder="Firstname"  title="Cannot be less than 3 "       [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    </div>
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required"  style="color: azure;">First Name is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <span class="hidden">LastName</span>
+                        <div class="input-container">
+                      <i class="fa fa-user icon fa-2x"></i>
+                      <input type="text" formControlName="lastName" class="form-control"
+                      placeholder="LastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                         </div>
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required" style="color: azure">Last Name is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <span class="hidden">Email</span>
+                      <div class="input-container">
+                      <i class="fa fa-envelope icon fa-2x"></i>
+                      <input type="email" formControlName="email" class="form-control"
+                      placeholder="Email ID"  title="Should be valid email of the form abcd@gmail.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      </div>
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email"  style="color: azure">Email must be a valid email address of the form abc@gmail.com</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <span class="hidden">Password</span>
+                      <div class="input-container">
+                      <i class="fa fa-key icon fa-2x"></i>
+                      <input type="password" formControlName="password" class="form-control" 
+                       placeholder="Password" title="Must Contain at least one number and one Uppercase and lowercase letter,and atleast 6 or more character" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      </div>
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength"  style="color: azure">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                     <span class="hidden">Confirm Password</span>
+                     <div class="input-container">
+                      <i class="fa fa-lock icon fa-2x"></i>
+                      <input type="password" formControlName="confirmPassword" class="form-control" 
+                          placeholder="Confirm Password" title ="Should match with Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                     </div>
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="f.confirmPassword.errors.mustMatch"  style="color: azure">Passwords must match</div>
+                      </div>
+                  </div>
+                            
+
+                  <form>
+                    <select name="gender" class="custom-select">
+                      <option selected>Choose Gender</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="others">Others</option>
+                    </select>
+                  </form>
+                 <br><br>
+
+                  <div class="form-group" style="text-align: right">
+                      <button class="btn btn-primary ">Register</button>
+                  </div>
+              </form>
+          </div>
+    
+ 
+
