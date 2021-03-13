@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReviewService } from '../services/review-service.service';
 @Component({
   selector: 'app-review-dialog',
   templateUrl: './review-dialog.component.html',
@@ -8,12 +9,32 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ReviewDialogComponent implements OnInit {
   dialogData: any = {};
   currentRate = 0;
+  review: string = "";
   constructor(public dialogRef: MatDialogRef<ReviewDialogComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any) { 
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    private reviewService: ReviewService) { 
       this.dialogData = data;
     }
 
   ngOnInit(): void {
     console.log("dialogData", this.dialogData);
+  }
+  addReview(){
+    console.log("in add review function", this.review);
+    //dummy
+    let data = {
+      "userId": this.dialogData.userId,
+      "bookISBN": this.dialogData.bookISBN,
+      "rating": 4,
+      "review": this.review
+  };
+    this.reviewService.addReview(data).subscribe(
+      result => {
+        this.dialogRef.close();
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 }

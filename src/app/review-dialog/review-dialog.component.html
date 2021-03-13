@@ -5,13 +5,14 @@
 <div mat-dialog-content class="dialog-desc">Review for book <mark>{{ dialogData.bookName }}</mark>, Reviews are public and editable.</div>
 <div class="row" style="margin-top: 2%;">
     <div class="col-4 text-center" style="padding: 0px">
-        <img src="{{ dialogData.bookImg }}" width="160px" height="227px" alt="book cover" />
+        <img class="thumbnail" src="{{ dialogData.bookImg }}" width="160px" height="227px" alt="book cover" />
     </div>
     <div class="col-8">
-        <textarea class="comment-section" placeholder="Tell others what you think about this book. Would you recommend it, and why?"></textarea>
+        <textarea [(ngModel)] = "review" class="comment-section" placeholder="Tell others what you think about this book. Would you recommend it, and why?"></textarea>
         <span>Most helpful reviews have 100 words or more</span>
     </div>
 </div>
-<div mat-dialog-actions>
-    <button class="btn btn-info" mat-button mat-dialog-close>Submit</button>
-</div>
+<div mat-dialog-actions style="float: right;">
+    <button class="btn btn-info" mat-button (click)="addReview()">Add Review</button>
+    <button class="btn btn-info" mat-button mat-dialog-close>Cancel</button>
+</div> 

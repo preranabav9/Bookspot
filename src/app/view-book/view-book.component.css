@@ -23,6 +23,7 @@
     background-color: white;
 }
 .review-button {
+    width: 100%;
     float: right;
     position: relative;
     margin-left: 2%;
@@ -30,4 +31,7 @@
 .btn-light:hover {
     box-shadow: 0 3px 0 #9b9e9c;
     background-color: white;
+}
+.additional-book-info {
+    margin-top: 10%;
 }

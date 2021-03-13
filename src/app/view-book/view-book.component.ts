@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ReviewDialogComponent } from '../review-dialog/review-dialog.component';
 import { BookService } from '../services/book.service';
+import { ReviewService } from '../services/review-service.service';
 
 @Component({
   selector: 'app-view-book',
@@ -10,11 +11,13 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./view-book.component.css']
 })
 export class ViewBookComponent implements OnInit {
-  isbn: number;
+  isbn: string;
   book: any = [];
+  reviews: any = [];
   constructor(private route: ActivatedRoute,
             private bookService: BookService,
-            public dialog: MatDialog) { }
+            public dialog: MatDialog,
+            private reviewService: ReviewService) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -24,8 +27,10 @@ export class ViewBookComponent implements OnInit {
         this.getBookById(this.isbn);
       }
     );
+    this.getReviewByBook();
   }
-  getBookById(bookId: number) {
+
+  getBookById(bookId: string) {
     this.bookService.getBookByBookId(bookId).subscribe(
       response => {
         console.log(response);
@@ -39,8 +44,10 @@ export class ViewBookComponent implements OnInit {
   openDialog(): void {
     const data = {
       "userName": "Marco",
+      "userId": 1,
       "bookName": this.book?.volumeInfo?.title,
-      "bookImg" : this.book?.volumeInfo?.imageLinks?.thumbnail
+      "bookImg" : this.book?.volumeInfo?.imageLinks?.thumbnail,
+      "bookISBN" : this.isbn
     };
     const dialogRef = this.dialog.open(ReviewDialogComponent, {
       data: data
@@ -50,4 +57,20 @@ export class ViewBookComponent implements OnInit {
       //this.dialogValue = result.data;
     });
   }
+  getUserbyId(id:number) {
+    this.bookService.getUserById(id).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+  getReviewByBook() {
+    this.reviewService.getReviewsByBookISBN(this.isbn).subscribe(
+      response => {
+        console.log("response", response);
+        this.reviews = response;
+      }
+    )
+  }
 }
+
