@@ -2,16 +2,23 @@
 @import url('https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css');
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
-html {
-   height: 100%;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.icon {
+    width: 20px;
+    height: 20px;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
-    font-family: 'lato', sans-serif;
-    color: #fff;
-   
+.logo{
+    margin-left: 6%;
+    margin-top: 1%;
+}
+.logo-img {
+    width: 130px;
+    height: 60px;
+}
+.wrapper {
+    background-color: black;
+    max-height: 100%;
+    max-width: auto;
+    overflow: auto;
 }

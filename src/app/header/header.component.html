@@ -1,0 +1,31 @@
+<header class="header">
+    <mat-toolbar class="toolbar">
+        <div class="logo">
+            <a href="#"><img src="../../assets/images/logo4.png" alt="logo" class="logo-img"/></a>
+        </div>
+        <nav class="navbar navbar-expand-md navBar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-block-bar">|</div>
+                    </li>
+                    <li class="nav-item" *ngIf="isAuthenicate">
+                        <a href="#">My Profile</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isAuthenicate">
+                        <a href="#">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </mat-toolbar>
+</header>

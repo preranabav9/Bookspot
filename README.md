@@ -17,7 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * To work on the task alotted to you first create branch
 
-    `command: git checkout -b BookSpot_<Task_Name>_<Creation_Date>` Eg. git checkout -b BookSpot_login_page_2_march
+    `command: git checkout -b <branch_name>` Eg. git checkout -b BookSpot_login_page_2_march
 
 * To checkout in exisiting branch 
 
