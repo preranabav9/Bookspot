@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< src/app/app-routing.module.ts
+import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
+import { LoginComponent } from './login/login.component';
+import { RequestResetComponent } from './request-reset/request-reset.component';
+import { RequestResponseComponent } from './request-response/request-response.component';
+
 import { RecommendationComponent } from './recommendation/recommendation.component';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
 import { RegisterComponent } from './register/register.component';
@@ -33,8 +37,31 @@ const routes: Routes = [
     path: "search",
     component: SearchBookComponent
 
-=======
->>>>>>> src/app/app-routing.module.ts
+
+  },
+  {
+    path: 'recommendation',
+    component: RecommendationComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+
+  },
+  {
+    path: 'request-reset',
+    component: RequestResetComponent
+
+  },
+  {
+    path: 'request-response',
+    component: RequestResponseComponent
+
+  },
+  {
+    path: 'favourite-book',
+    component: FavoriteBookComponent
+
   }
 ];
 
