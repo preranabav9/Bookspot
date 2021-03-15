@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< src/app/app-routing.module.ts
 import { RecommendationComponent } from './recommendation/recommendation.component';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
 import { RegisterComponent } from './register/register.component';
@@ -33,8 +32,10 @@ const routes: Routes = [
     path: "search",
     component: SearchBookComponent
 
-=======
->>>>>>> src/app/app-routing.module.ts
+  },
+  {
+    path: "recommendation",
+    component: RecommendationComponent
   }
 ];
 

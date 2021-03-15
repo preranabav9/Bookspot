@@ -10,16 +10,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-<<<<<<< src/app/material.module.ts
-import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
-=======
-
-
->>>>>>> src/app/material.module.ts
 
 @NgModule({
   declarations: [],
@@ -35,14 +29,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatTableModule,
     MatSortModule,
-<<<<<<< src/app/material.module.ts
     MatGridListModule,
     MatListModule,
     MatTooltipModule,
     MatDialogModule,
     MatGridListModule
-=======
->>>>>>> src/app/material.module.ts
   ],
   exports: [
     MatToolbarModule,
@@ -55,15 +46,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatTableModule,
     MatSortModule,
-<<<<<<< src/app/material.module.ts
     MatGridListModule,
     MatListModule,
     MatTooltipModule,
     MatDialogModule,
     MatGridListModule
-=======
    
->>>>>>> src/app/material.module.ts
   ]
 })
 export class MaterialModule { }

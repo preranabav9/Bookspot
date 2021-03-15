@@ -1,20 +1,8 @@
-.example-card {
-   max-width: 300px;
-   padding: auto;
-   margin: 5rem;
-  }
-  .example-header-image {
-   
-   background-size:20px !important;
-    background-color:yellow !important;
-  }
-
-  .mat-card-content{
-  padding:5px !important;
-  background-color: mediumpurple;
+.content {
+  margin-top: 7%;
+  padding: 16px;
 }
-.mat-card-header{
-    background-color:green !important;
-    padding:5px !important;
-  }
-  
+
+.content > mat-card {
+  width: 200px;
+}
