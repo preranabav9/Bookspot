@@ -1,0 +1,28 @@
+.genres-example-list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2%;
+}
+.genre-example {
+    position: relative;
+    display: flex;
+    height: 60%;
+    width: 60%;
+    align-items: center;
+    margin-right: 5;
+    padding: auto;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+.genre-card {
+    background-color: #baf5ea;
+}
+.content {
+    margin-top: 7%;
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
+}

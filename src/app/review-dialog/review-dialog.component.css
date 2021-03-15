@@ -1,0 +1,22 @@
+.dialog-head {
+    background-color: lightskyblue;
+}
+.dialog-desc {
+    margin-top: 2%;
+}
+.comment-section {
+    background-color: #f5f5f5;
+    border: 0;
+    box-sizing: border-box;
+    color: #212121;
+    font-weight: 300;
+    height: 203px;
+    padding: 16px 20px;
+    resize: none;
+    width: 100%;
+}
+.ngb-rating {
+    font-size: 100px;
+    color:brown;
+    background: rgba(23, 221, 16, 0.815);
+  }
