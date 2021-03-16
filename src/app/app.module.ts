@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< src/app/app.module.ts
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-=======
->>>>>>> src/app/app.module.ts
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-<<<<<<< src/app/app.module.ts
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RecommendationComponent } from './recommendation/recommendation.component';
@@ -24,17 +19,17 @@ import { FooterComponent } from './footer/footer.component';
 import { ReviewDialogComponent } from './review-dialog/review-dialog.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RequestResetComponent } from './request-reset/request-reset.component';
 
-=======
+import { RequestResponseComponent } from './request-response/request-response.component';
 
->>>>>>> src/app/app.module.ts
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-<<<<<<< src/app/app.module.ts
     AboutUsComponent,
     RecommendationComponent,
     RegisterSuccessComponent,
@@ -43,18 +38,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeaderComponent,
     FooterComponent,
     ReviewDialogComponent,
-    SearchBookComponent
+    SearchBookComponent,
+    RequestResetComponent,
+    RequestResponseComponent
     
-=======
+    
    
->>>>>>> src/app/app.module.ts
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-<<<<<<< src/app/app.module.ts
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
@@ -63,9 +58,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule
-=======
     
->>>>>>> src/app/app.module.ts
   ],
   providers: [],
   bootstrap: [AppComponent]
