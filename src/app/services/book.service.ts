@@ -22,6 +22,8 @@ export class BookService {
     let apiRequest = "?q=";
     if(title) {
       apiRequest += title;
+    } else {
+      apiRequest += "criticism&printType=books&maxResults=4&key="+this.apiKey;
     }
     if(category) {
       apiRequest += "incategory:" + category;
@@ -33,12 +35,5 @@ export class BookService {
   }
   getUserById(id: number) {
     return this.httpClient.get(this.bookspotApi+"/getUser/"+id); //New Request
-    /*
-      {
-        id: 1,
-        name: "vaishali"
-        email: 
-      }
-    */
   }
 }

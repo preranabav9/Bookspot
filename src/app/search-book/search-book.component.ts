@@ -16,9 +16,12 @@ export class SearchBookComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        console.log(params['category']);
-        this.category = params['category'];
-        this.getBooksByFilter(this.category);
+        if(params) {
+          this.category = params['category'];
+          this.getBooksByFilter(this.category);
+        } else {
+          this.getBooksByFilter();
+        }
       }
     );
   }
