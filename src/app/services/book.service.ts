@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class BookService {
   apiKey: string = "AIzaSyDC0itpOE_dpXciDZ9-Qp_PWXQQVdcVsxQ";
   api: string = "https://www.googleapis.com/books/v1/volumes";
-  bookspotApi: string = "http://localhost:8080/bookSpotAPI";
+  bookspotJPAApi: string = "http://localhost:8080/bookSpotAPI";
+  bookspotMongoApi: string = "http://localhost:8081/bookSpotAPI";
 
   constructor(private httpClient: HttpClient) { }
   getAllBooks() {
@@ -23,11 +24,11 @@ export class BookService {
     let apiRequest = "?q=";
     if(title) {
       apiRequest += title;
-    } else {
-      apiRequest += "criticism&printType=books&maxResults=4&key="+this.apiKey;
     }
     if(category) {
       apiRequest += "incategory:" + category;
+    }  else {
+      apiRequest += "criticism&printType=books&maxResults=4&key="+this.apiKey;
     }
     if(author) {
       apiRequest += "&inauthor:" + author;
@@ -35,11 +36,11 @@ export class BookService {
     return this.httpClient.get(this.api+apiRequest);
   }
   getUserById(id: number) {
-    return this.httpClient.get(this.bookspotApi+"/getUser/"+id); //New Request
+    return this.httpClient.get(this.bookspotJPAApi+"/getUser/"+id); //New Request
   }
 
   getBookByRecommend(){
-    return this.httpClient.get(this.bookspotApi+"/getallrecommend");
+    return this.httpClient.get(this.bookspotMongoApi+"/getallrecommend");
   }
 
 

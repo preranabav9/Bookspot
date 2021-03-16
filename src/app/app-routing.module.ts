@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< src/app/app-routing.module.ts
-=======
 import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
 import { LoginComponent } from './login/login.component';
 import { RequestResetComponent } from './request-reset/request-reset.component';
@@ -12,9 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
-
->>>>>>> src/app/app-routing.module.ts
-
 
 const routes: Routes = [
   {
@@ -48,7 +43,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-
   },
   {
     path: 'request-reset',
@@ -63,12 +57,6 @@ const routes: Routes = [
   {
     path: 'favourite-book',
     component: FavoriteBookComponent
-
-<<<<<<< src/app/app-routing.module.ts
-
-=======
-
->>>>>>> src/app/app-routing.module.ts
   }
 ];
 

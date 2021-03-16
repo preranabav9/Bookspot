@@ -16,7 +16,9 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     submitted = false;
 
-    constructor(private formBuilder: FormBuilder,private userService: UserService,private router: Router) { }
+    constructor(private formBuilder: FormBuilder,
+                private userService: UserService,
+                private router: Router) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -37,10 +39,10 @@ export class RegisterComponent implements OnInit {
         // console.log("value12",this.registerForm.value);
         this.userService.register(this.registerForm.value).subscribe(
             result => {
-              console.log(result);
-              this.router.navigate(['register-success']); //if the activation is successful only then register-success.
+                console.log(result);
+                this.router.navigate(['register-success']); //if the activation is successful only then register-success.
             }
-          )
+        )
 
 
 

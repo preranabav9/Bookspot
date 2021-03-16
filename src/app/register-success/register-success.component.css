@@ -1,11 +1,16 @@
 .jumbotron{
+    position: relative;
+    margin-top: 6rem;
+    margin-left: 4.5%;
+    margin-right: 2%;
     color: black;
-    width: 100%;
-    background-color:skyblue;
+    width: 90%;
+    height: fit-content;
+    background-color: #ffcc00;
 }
-body{
-    background-image: url('../../assets/download.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+.header {
+    width: 100%;
+}
+.lead {
+    text-align: center;
 }

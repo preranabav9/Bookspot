@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< src/app/app.module.ts
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-=======
-
->>>>>>> src/app/app.module.ts
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { RecommendationComponent } from './recommendation/recommendation.component';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,28 +18,17 @@ import { ReviewDialogComponent } from './review-dialog/review-dialog.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RecommendationComponent } from './recommendation/recommendation.component'
-<<<<<<< src/app/app.module.ts
-=======
-
->>>>>>> src/app/app.module.ts
-
-<<<<<<< src/app/app.module.ts
-
-=======
 import { RequestResetComponent } from './request-reset/request-reset.component';
 
 import { RequestResponseComponent } from './request-response/request-response.component';
 
 
->>>>>>> src/app/app.module.ts
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-<<<<<<< src/app/app.module.ts
-=======
     AboutUsComponent,
     RecommendationComponent,
     RegisterSuccessComponent,
@@ -55,17 +38,9 @@ import { RequestResponseComponent } from './request-response/request-response.co
     FooterComponent,
     ReviewDialogComponent,
     SearchBookComponent,
-    RecommendationComponent
->>>>>>> src/app/app.module.ts
-<<<<<<< src/app/app.module.ts
-
-=======
+    RecommendationComponent,
     RequestResetComponent,
     RequestResponseComponent
-    
-    
-   
->>>>>>> src/app/app.module.ts
   ],
   imports: [
     BrowserModule,
@@ -76,18 +51,9 @@ import { RequestResponseComponent } from './request-response/request-response.co
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    FlexLayoutModule
-<<<<<<< src/app/app.module.ts
-=======
-  
->>>>>>> src/app/app.module.ts
+    FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
-    
-<<<<<<< src/app/app.module.ts
-=======
-    
->>>>>>> src/app/app.module.ts
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

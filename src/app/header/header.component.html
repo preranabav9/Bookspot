@@ -13,7 +13,7 @@
                         <a [routerLink]="['/search']">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Popular</a>
+                        <a [routerLink]="['/recommendation']">Popular</a>
                     </li>
                     <li class="nav-item">
                         <div class="nav-block-bar">|</div>
@@ -22,7 +22,7 @@
                         <a href="#">My Profile</a>
                     </li>
                     <li class="nav-item" *ngIf="!isAuthenicate">
-                        <a href="login">Sign In</a>
+                        <a [routerLink]="['/login']">Sign In</a>
                     </li>
                 </ul>
             </div>
