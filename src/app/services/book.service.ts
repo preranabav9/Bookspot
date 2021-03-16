@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class BookService {
   apiKey: string = "AIzaSyDC0itpOE_dpXciDZ9-Qp_PWXQQVdcVsxQ";
   api: string = "https://www.googleapis.com/books/v1/volumes";
-  bookspotApi: string = "http://localhost:8080/bookSpotApi";
+  bookspotApi: string = "http://localhost:8080/bookSpotAPI";
+
   constructor(private httpClient: HttpClient) { }
   getAllBooks() {
     return this.httpClient.get(this.api+"?q=trending&printType=books&maxResults=4&key="+this.apiKey);
@@ -41,4 +42,10 @@ export class BookService {
       }
     */
   }
+
+  getBookByRecommend(){
+    return this.httpClient.get(this.bookspotApi+"/getallrecommend");
+  }
+
+
 }
