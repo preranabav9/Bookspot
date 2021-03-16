@@ -12,5 +12,13 @@ export class UserService {
     console.log("user", user);
     return this.httpClient.post(this.api + "addUser", user);
   }
+  login(user:any){
+    console.log("user", user);
+    return this.httpClient.post(this.api + "login", user);
+    
+  }
+  forgetpassword(email: string){
+    return this.httpClient.get(this.api + "send-otp/"+email);
+  }
 }
 

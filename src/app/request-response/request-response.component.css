@@ -46,25 +46,11 @@
     display:inline;
   }
   
-  .button {
-    background-color: #9f1bc7;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
+  body{
+      background-image:url(../../assets/download.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      background-color: #fff;
   }
-  .btn{
-    background-color: #1b90c7;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-  
-  }
-  
