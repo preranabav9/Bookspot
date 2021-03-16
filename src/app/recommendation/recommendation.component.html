@@ -1,51 +1,30 @@
-<div class="card-deck ">
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>The Kite Runner</mat-card-title>
-          <mat-card-subtitle>by Khaled Hosseini</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../assets/kiterunner.jpg" alt="Kite Runner">
-        <hr>
-        <mat-card-content>
-          <p>
-            The unforgetable story of the unlikely friendship between a wealthy boy and the son of his father’s servant.
-            A beautifully crafted novel set in a country that is in the process of being destroyed. 
-            It is about the power of reading, the price of betrayal, and the possibility of redemption;
-         
-             <br>
-            A sweeping story of family, love, and friendship told against the devastating 
-            backdrop of the history of Afghanistan over the last thirty years.
-            The Kite Runner is an unusual and powerful novel that has become a beloved, one-of-a-kind classic.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>4.8/5</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-    <br><br><br>
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>The Monk who sold his Ferrari</mat-card-title>
-          <mat-card-subtitle>by Robin Sharma</mat-card-subtitle>
-        </mat-card-header>
-        <img class="card-img-top" src="../../assets/Monk who sold his Ferrari.jpg"  alt="Monk who sold his ferrari">
-        <hr>
-        <mat-card-content>
-          <p>
-            The Monk Who Sold His Ferrari: A Fable About Fulfilling Your Dreams and Reaching Your Destiny by motivational speaker and author Robin Sharma
-             is an inspiring tale that provides a step-by-step approach to living with greater courage, balance, abundance and joy.
-              The Monk Who Sold His Ferrari tells the extraordinary story of Julian Mantle, a lawyer forced to confront the spiritual crisis of his out-of-balance life, and the subsequent wisdom that 
-            he gains on a life-changing odyssey that enables him to create a life of passion, purpose and peace.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>4.9/5</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-  </div>
+<div class="wrapper">
+  <app-header></app-header>
+  <div class="content">
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+          <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let book of recommendedBooks">
+              <mat-card class="mat-elevation-z4">
+                  <mat-card-header>
+                      <mat-card-title matTooltip="{{ book?.bookName }}">{{ book?.bookName.length > 25 ? book?.bookName.substr(0, 25) + "..." : book?.bookName }}
 
-  
+                      </mat-card-title>
+                      <mat-card-subtitle>{{ book?.volumeInfo?.authors[0] }}&nbsp;&nbsp;&nbsp;-recommended by {{book.username}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.volumeInfo?.industryIdentifiers[0].identifier }">
+                      <img mat-card-image src="{{ book?.bookImg }}" alt="Book cover" height="250px">
+                  </a>
+                  <mat-card-content>
+                      <p>
+                          {{ book?.bookDesc.substr(0, 55) + "..." }} <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.bookDesc }">Show more</a>
+                      </p>
+                  </mat-card-content>
+                  <!-- <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                  </mat-card-actions> -->
+              </mat-card>
+          </div>
+      </div>
+  </div>
+  <app-footer></app-footer>
+</div>
