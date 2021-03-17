@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path: 'favourite-book',
     component: FavoriteBookComponent
+  },
+  {
+    path:'about-us',
+    component: AboutUsComponent
   }
 ];
 
