@@ -14,6 +14,7 @@ export class SearchBookComponent implements OnInit {
   author: string;
   categoryBooks: any;
   categoryList: string[] = ['Thriller', 'Horror'];
+  isAuthenicate: boolean = false;
   constructor(private route: ActivatedRoute,
             private bookService: BookService) { }
 
@@ -28,6 +29,15 @@ export class SearchBookComponent implements OnInit {
         }
       }
     );
+    this.checkAuthentication();
+  }
+  checkAuthentication() {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    if(token) {
+      this.isAuthenicate = true;
+      console.log(this.isAuthenicate);
+    }
   }
   getBooksByFilter(category: string = '', author: string = '', title: string = '') {
       this.bookService.getBooksByFilter(category, author, title).subscribe(

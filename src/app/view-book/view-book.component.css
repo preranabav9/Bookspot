@@ -1,5 +1,5 @@
 .book {
-    height: 700px;
+    height: max-content;
     margin: 7%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -28,10 +28,17 @@
     position: relative;
     margin-left: 2%;
 }
+.btn-info {
+    background-color: #0ed5eb;
+}
+.btn-info:hover {
+    background-color: #6be0f2;
+}
 .btn-light:hover {
     box-shadow: 0 3px 0 #9b9e9c;
     background-color: white;
 }
 .additional-book-info {
-    margin-top: 10%;
+    margin-top: 12%;
+    height: 2%;
 }

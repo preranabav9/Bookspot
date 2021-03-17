@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { RegisterComponent } from '../register/register.component';
+import { RequestResetComponent } from '../request-reset/request-reset.component';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -13,7 +17,9 @@ export class LoginComponent implements OnInit {
   submitted = false;
   constructor(private formBuilder: FormBuilder,
             private userService: UserService,
-            private router: Router) { }
+            private router: Router,
+            private toastr: ToastrService,
+            public dialog: MatDialog) { }
 
   ngOnInit() {
       this.loginForm= this.formBuilder.group({
@@ -27,16 +33,36 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.userService.login(this.loginForm.value).subscribe(
-      result => {
-        console.log(result);
-        this.router.navigate(['dashboard']);
+      response => {
+        if(response['id']) {
+          //this.toastr.s('Hello world!', 'Toastr fun!');
+          localStorage.setItem('userId', response['id']);
+          localStorage.setItem('userName', response['firstName'] + " " +response['lastName']);
+          localStorage.setItem('role', response['role']);
+          localStorage.setItem('token', response['token']);
+          window.location.reload();
+        } else {
+          console.log("user not found");
+        }
+      },
+      error => {
+        console.log("user not found exception");
       }
-    ) 
+    );
     this.submitted = true;
-      // stop here if form is invalid
-      if (this.loginForm.invalid) {
-        return;
-    }
+  }
+  openRegisterDialog() {
+    let dialogRef = this.dialog.open(RegisterComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("result", result);
+    });
+  }
+  openResetPasswordDialog() {
+    let dialogRef = this.dialog.open(RequestResetComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("result", result);
+    });
   }
 }
+
 

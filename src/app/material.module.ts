@@ -14,6 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -33,7 +34,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatTooltipModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule
   ],
   exports: [
     MatToolbarModule,
@@ -50,7 +52,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatTooltipModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule
    
   ]
 })

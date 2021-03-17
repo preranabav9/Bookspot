@@ -44,9 +44,11 @@
 }
 .sign-up div {
     color: #111;
-    padding-top: 9%;
     font-size: 1rem;
     font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 6%;
 }
 .qoute-bg-img {
     width: 100%;
@@ -112,12 +114,12 @@
     background-color: white;
     color:black;
 }
-.genres-example-list {
+/* .genres-example-list {
     display: flex;
     align-items: center;
     width: 100%;
     margin-bottom: 2%;
-}
+} */
 .genre-example {
     position: relative;
     display: flex;
@@ -129,6 +131,14 @@
     margin-left: 0.5%;
     margin-right: 0.5%;
 }
-.genre-card {
+/* .genre-card {
     background-color: #ffcc00;
+} */
+.content {
+    margin-top: 2%;
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
 }

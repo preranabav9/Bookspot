@@ -8,7 +8,7 @@
         <img class="thumbnail" src="{{ dialogData.bookImg }}" width="160px" height="227px" alt="book cover" />
     </div>
     <div class="col-8">
-        <textarea [(ngModel)] = "review" class="comment-section" placeholder="Tell others what you think about this book. Would you recommend it, and why?"></textarea>
+        <textarea [(ngModel)] = "review" class="comment-section" placeholder="Tell others what you think about this book. Would you recommend it, and why?" maxlength="200"></textarea>
         <span>Most helpful reviews have 100 words or more</span>
     </div>
 </div>
