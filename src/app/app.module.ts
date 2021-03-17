@@ -21,6 +21,7 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
 import { RequestResetComponent } from './request-reset/request-reset.component';
 
 import { RequestResponseComponent } from './request-response/request-response.component';
+import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
 
 
 
@@ -40,7 +41,8 @@ import { RequestResponseComponent } from './request-response/request-response.co
     SearchBookComponent,
     RecommendationComponent,
     RequestResetComponent,
-    RequestResponseComponent
+    RequestResponseComponent,
+    FavoriteBookComponent
   ],
   imports: [
     BrowserModule,
