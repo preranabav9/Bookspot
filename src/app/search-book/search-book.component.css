@@ -1,28 +1,21 @@
-.genres-example-list {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 2%;
-}
-.genre-example {
-    position: relative;
-    display: flex;
-    height: 60%;
-    width: 60%;
-    align-items: center;
-    margin-right: 5;
-    padding: auto;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-}
-.genre-card {
-    background-color: #baf5ea;
-}
 .content {
-    margin-top: 7%;
+    margin-top: 2%;
     padding: 16px;
 }
 
 .content > mat-card {
     width: 200px;
+}
+
+.filters {
+    margin-top: 8%;
+}
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+.cat-select{
+    /* background-color: #ffcc00; */
+    text-align: center;
+    vertical-align: left;
 }

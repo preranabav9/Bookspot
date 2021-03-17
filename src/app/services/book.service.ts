@@ -26,12 +26,16 @@ export class BookService {
       apiRequest += title;
     }
     if(category) {
-      apiRequest += "incategory:" + category;
-    }  else {
-      apiRequest += "criticism&printType=books&maxResults=4&key="+this.apiKey;
+      if(title)
+        apiRequest += "&incategory:" + category;
+      else 
+        apiRequest += "incategory:" + category;
     }
     if(author) {
-      apiRequest += "&inauthor:" + author;
+      if(category)
+        apiRequest += "&inauthor:" + author;
+      else 
+        apiRequest += "inauthor:" + author;
     }
     return this.httpClient.get(this.api+apiRequest);
   }

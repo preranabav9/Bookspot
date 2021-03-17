@@ -24,6 +24,7 @@ export class ReviewDialogComponent implements OnInit {
     //dummy
     let data = {
       "userId": this.dialogData.userId,
+      "userName": this.dialogData.userName,
       "bookISBN": this.dialogData.bookISBN,
       "rating": 4,
       "review": this.review
