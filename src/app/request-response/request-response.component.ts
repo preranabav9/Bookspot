@@ -29,7 +29,7 @@ export class RequestResponseComponent implements OnInit {
 
   onSubmit() {
        console.log("value",this.responseForm.value);
-      this.userService.register(this.responseForm.value).subscribe(
+      this.userService.responseForm(this.responseForm.value).subscribe(
           result => {
             console.log(result);
           }
