@@ -41,19 +41,11 @@ export class RegisterComponent implements OnInit {
             result => {
                 console.log(result);
                 this.router.navigate(['register-success']); //if the activation is successful only then register-success.
+            },
+            error => {
+                console.log(error);
             }
-        )
-
-
-
-
+        );
         this.submitted = true;
-
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-        }
-
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
     }
 }

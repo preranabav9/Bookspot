@@ -1,7 +1,7 @@
 <header class="header">
     <mat-toolbar class="toolbar">
         <div class="logo">
-            <a href="#"><img src="../../assets/images/logo4.png" alt="logo" class="logo-img"/></a>
+            <a [routerLink]="['/dashboard']"><img src="../../assets/images/logo4.png" alt="logo" class="logo-img"/></a>
         </div>
         <nav class="navbar navbar-expand-md navBar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -13,7 +13,7 @@
                         <a [routerLink]="['/search']">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a [routerLink]="['/recommendation']">Popular</a>
+                        <a [routerLink]="['/recommendation']">Recommendation</a>
                     </li>
                     <li class="nav-item">
                         <div class="nav-block-bar">|</div>

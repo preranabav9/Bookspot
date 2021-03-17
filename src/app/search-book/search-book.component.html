@@ -1,19 +1,49 @@
 <div class="wrapper">
     <app-header></app-header>
+    <div class="row filters">
+        <form class="form-inline" style="width: 100%;margin: auto;padding: auto;">
+        <div class="col-4 cat-select">
+            <mat-form-field appearance="fill" style="background-color: #f1f1f1;width: 80%;">
+                <mat-label>Select Category/Genres</mat-label>
+                <mat-select [(value)] = "category">
+                    <mat-option *ngFor="let category of categoryList" [value]="category">
+                        {{category}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <input id="title" name="title" [(ngModel)] = "title" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search by title" aria-label="Search by title"/>
+            <img src="../../assets/icon/search-solid.svg" class="icon_img"/>
+        </div>
+        <div class="col-3 cat-select">
+            <input id="author" name="author" [(ngModel)] = "author" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search by author" aria-label="Search by author"/>
+            <img src="../../assets/icon/search-solid.svg" class="icon_img"/>
+        </div>
+        <div class="col-2">
+            <button mat-raised-button color="accent" (click)="geFilteredBook()">Search</button>
+        </div>
+        <div class="col-4 cat-select">
+        </div>
+    </form>
+    </div>
     <div class="content">
         <div fxLayout="row wrap" fxLayoutGap="16px grid">
             <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let book of categoryBooks">
                 <mat-card class="mat-elevation-z4" style="background-color: #ffcc00;">
                     <mat-card-header>
-                        <mat-card-title matTooltip="{{ book?.volumeInfo?.title }}">{{ book?.volumeInfo?.title?.length > 25 ? book?.volumeInfo?.title.substr(0, 25) + "..." : book?.volumeInfo?.title }}</mat-card-title>
+                        <mat-card-title matTooltip="{{ book?.volumeInfo?.title }}">{{ book?.volumeInfo?.title?.length > 15 ? book?.volumeInfo?.title.substr(0, 15) + "..." : book?.volumeInfo?.title }}</mat-card-title>
                         <mat-card-subtitle>{{ book?.volumeInfo?.authors[0] }}</mat-card-subtitle>
                     </mat-card-header>
                     <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.volumeInfo?.industryIdentifiers[0].identifier }">
                         <img mat-card-image src="{{ book?.volumeInfo?.imageLinks?.thumbnail }}" alt="Book cover" height="250px">
                     </a>
                     <mat-card-content>
-                        <p>
+                        <p *ngIf="book?.volumeInfo?.description">
                             {{ book?.volumeInfo?.description.substr(0, 40) + "..." }} <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.volumeInfo?.industryIdentifiers[0].identifier }">Show more</a>
+                        </p>
+                        <p *ngIf="!book?.volumeInfo?.description">
+                            <a [routerLink]="['/view-book']" [queryParams]="{ isbn: book?.volumeInfo?.industryIdentifiers[0].identifier }">Show more</a>
                         </p>
                     </mat-card-content>
                     <!-- <mat-card-actions>

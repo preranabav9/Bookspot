@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-book',
@@ -9,7 +10,10 @@ import { BookService } from '../services/book.service';
 })
 export class SearchBookComponent implements OnInit {
   category: string;
+  title: string;
+  author: string;
   categoryBooks: any;
+  categoryList: string[] = ['Thriller', 'Horror'];
   constructor(private route: ActivatedRoute,
             private bookService: BookService) { }
 
@@ -28,11 +32,17 @@ export class SearchBookComponent implements OnInit {
   getBooksByFilter(category: string = '', author: string = '', title: string = '') {
       this.bookService.getBooksByFilter(category, author, title).subscribe(
         response => {
-          console.log("response", response);
           this.categoryBooks = response['items'];
+          console.log(this.categoryBooks);
         }, error => {
           console.log("error", error);
         }
       )
+  }
+  geFilteredBook() {
+    this.getBooksByFilter(this.category, this.author, this.title);
+    this.title = "";
+    this.category = "";
+    this.author = "";
   }
 }
