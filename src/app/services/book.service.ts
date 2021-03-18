@@ -46,11 +46,18 @@ export class BookService {
   getBookByRecommend(){
     return this.httpClient.get(this.bookspotMongoApi+"/getallrecommend");
   }
+   getBookByfavourite(){
+    return this.httpClient.get(this.bookspotMongoApi+"/getBookByfavourite()");
+  }
+<<<<<<< src/app/services/book.service.ts
+
+=======
   addRecommendation(data: any) {
     return this.httpClient.post(this.bookspotMongoApi+"/addtorecommend", data);
   }
   addToFavourites(data: any) {
     return this.httpClient.post(this.bookspotMongoApi+"/addFavouriteBook", data);
+>>>>>>> src/app/services/book.service.ts
   }
 
 }
