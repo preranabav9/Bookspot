@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
+import { RegisterComponent } from '../register/register.component';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,14 +10,36 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  isAuthenicate: boolean;
+  isAuthenicate: boolean = false;
   books: any;
   categoryBooks: any;
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.isAuthenicate = false;
+    this.checkAuthentication();
+    console.log(this.isAuthenicate);
     this.getBookByCategory("horror");
+  }
+  openRegisterDialog() {
+    let dialogRef = this.dialog.open(RegisterComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("result", result);
+    });
+  }
+  openLoginDialog() {
+    let dialogRef = this.dialog.open(LoginComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("result", result);
+    });
+  }
+  checkAuthentication() {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    if(token) {
+      this.isAuthenicate = true;
+      console.log(this.isAuthenicate);
+    }
   }
   getBookByCategory(category: string) {
     this.bookService.getBookByCategory(category).subscribe(

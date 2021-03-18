@@ -28,9 +28,23 @@
                 </div>
             </div>
                 <div class=float-right>
-                    <a routerLink="/request-reset">Reset Password</a>
+                    <a (click) = "openResetPasswordDialog()">Reset Password</a>
             </div>
-            <button type="submit" class="button" [disabled] = "loginForm.invalid">Sign in</button>
-                <a routerLink="/register" class="btn">Sign Up</a>
+            <div class="row">
+                <br/><br/>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn login">Sign In</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn sign-up" (click)="openRegisterDialog()">Sign Up</button>
+                </div>
+            </div>
+            <div class="row">
+                <br/>
+            </div>
+            <!-- <button mat-button-raised type="submit" class="button">Sign in</button>
+                <a routerLink="/register" class="btn">Sign Up</a> -->
         </form>
     </div>

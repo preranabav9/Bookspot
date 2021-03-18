@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,10 +20,10 @@ import { SearchBookComponent } from './search-book/search-book.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RecommendationComponent } from './recommendation/recommendation.component'
 import { RequestResetComponent } from './request-reset/request-reset.component';
-
 import { RequestResponseComponent } from './request-response/request-response.component';
-
-
+import { AuthenticationService } from './services/authentication.service';
+import { CanActivateGuard } from './can-activate.guard';
+import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RequestResponseComponent } from './request-response/request-response.co
     SearchBookComponent,
     RecommendationComponent,
     RequestResetComponent,
-    RequestResponseComponent
+    RequestResponseComponent,
+    ViewReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +55,11 @@ import { RequestResponseComponent } from './request-response/request-response.co
     HttpClientModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthenticationService,
+              CanActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

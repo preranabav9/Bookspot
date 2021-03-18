@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CanActivateGuard } from './can-activate.guard';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   {
     path: 'recommendation',
     component: RecommendationComponent
+    //, canActivate: [CanActivateGuard]
   },
   {
     path:'register-success',
@@ -39,7 +41,8 @@ const routes: Routes = [
   },
   {
     path: 'recommendation',
-    component: RecommendationComponent
+    component: RecommendationComponent,
+    canActivate: [CanActivateGuard]
   },
   {
     path: 'login',

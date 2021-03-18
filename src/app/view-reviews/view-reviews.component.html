@@ -1,0 +1,18 @@
+<mat-toolbar class="dialog-head"> 
+    <span>Reviews for {{ dialogData.bookName }}</span>
+  </mat-toolbar>
+<!-- <div mat-dialog-content class="dialog-desc">Review for book <mark>{{ dialogData.bookName }}</mark>, Reviews are public and editable.</div> -->
+<div class="row" style="margin-top: 2%;height: 300px;">
+    <div class="col-4 text-center" style="padding: 0px">
+        <img class="thumbnail" src="{{ dialogData.bookImg }}" width="160px" height="227px" alt="book cover" />
+    </div>
+    <div class="col-8" style="overflow: auto;">
+        <div>
+            <p *ngFor = "let review of reviews" style="border-bottom: 1px solid black;">{{review.userName}}:&nbsp;{{review.review}}</p>
+        </div>
+    </div>
+</div>
+<!-- <div mat-dialog-actions style="float: right;">
+    <button class="btn btn-info" mat-button (click)="addReview()">Add Review</button>
+    <button class="btn btn-info" mat-button mat-dialog-close>Cancel</button>
+</div>  -->

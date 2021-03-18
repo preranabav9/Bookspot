@@ -17,11 +17,8 @@ export class ReviewDialogComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    console.log("dialogData", this.dialogData);
   }
   addReview(){
-    console.log("in add review function", this.review);
-    //dummy
     let data = {
       "userId": this.dialogData.userId,
       "userName": this.dialogData.userName,
