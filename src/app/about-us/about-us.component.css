@@ -1,0 +1,43 @@
+body{ 
+    background-image: url(../../assets/images/download.jpg);
+    background-repeat:no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    margin: 10px;
+    
+}
+.about{
+    background-color: #0e0d0c;
+    padding:10px;
+    opacity: 0.8;
+   
+
+}
+p{
+    font-style: italic;
+    font-size: 120%;
+    text-align:justify;
+    padding:10px;
+}
+h1.name{
+    text-align: center;
+    font-size: 50px; 
+    padding: 2em;
+    font-weight: bolder;
+    font-style: italic;
+    background-color: black;
+             
+}
+h2{
+    font-size:180%;
+}
+.end{
+    background-color: hsl(30, 8%, 5%);
+    padding:10px;
+   
+}
+h3{
+    font-style: italic;
+    font-weight:bold;
+    font-size:20px;
+}
