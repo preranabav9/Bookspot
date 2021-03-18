@@ -11,8 +11,8 @@ export class CanActivateGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // return true;
     let flag = false;
+    console.log("in can activate");
     if(localStorage.getItem('token') && localStorage.getItem('userId'))
     {
       const response = this.authService.isUserAuthenticated(localStorage.getItem('token'), localStorage.getItem('userId'));
@@ -20,7 +20,7 @@ export class CanActivateGuard implements CanActivate {
       if (response) {
         flag = true;
       } else {
-        this.router.navigate(['login']);
+        this.router.navigate(['dashboard']);
         flag = false;
       }
     } else {

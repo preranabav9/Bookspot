@@ -5,12 +5,12 @@
         <p class="qoute-des">Join 150,000+ sci-fi, fantasy, and horror fans and read to 100+ exclusives and bestsellers on our app.</p>
         <div class="sign-up" *ngIf="!isAuthenicate">
             <a (click)="openRegisterDialog()">
-                <div><b>Click here to <br>Sign Up</b></div>
+                <div><b>Sign Up</b></div>
             </a>
         </div>
         <div class="sign-up" *ngIf="isAuthenicate">
-            <a [routerLink]="['/recommendation']">
-                <div><b>Click here view Recommendation</b></div>
+            <a [routerLink]="['/favourite-book']">
+                <div><b> My Favourites</b></div>
             </a>
         </div>
         <div class="qoute-bg-img">

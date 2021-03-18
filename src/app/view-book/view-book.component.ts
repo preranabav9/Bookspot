@@ -15,6 +15,8 @@ export class ViewBookComponent implements OnInit {
   isbn: string;
   book: any = [];
   reviews: any = [];
+  favouriteButtonColor: string = "black";
+  favouriteButtonDisable: boolean = false;
   constructor(private route: ActivatedRoute,
             private bookService: BookService,
             public dialog: MatDialog,
@@ -122,6 +124,8 @@ export class ViewBookComponent implements OnInit {
     this.bookService.addToFavourites(data).subscribe(
       response => {
         console.log("book added successfully!");
+        this.favouriteButtonColor = "red";
+        this.favouriteButtonDisable = true;
       },
       error=> {
         console.log("error");

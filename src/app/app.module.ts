@@ -21,14 +21,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RecommendationComponent } from './recommendation/recommendation.component'
 import { RequestResetComponent } from './request-reset/request-reset.component';
 import { RequestResponseComponent } from './request-response/request-response.component';
-import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
+import { FavouriteBookComponent } from './favourite-book/favourite-book.component';
 
-<<<<<<< src/app/app.module.ts
-=======
 import { AuthenticationService } from './services/authentication.service';
 import { CanActivateGuard } from './can-activate.guard';
 import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
->>>>>>> src/app/app.module.ts
 
 @NgModule({
   declarations: [
@@ -47,12 +44,8 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     RecommendationComponent,
     RequestResetComponent,
     RequestResponseComponent,
-    FavoriteBookComponent
-<<<<<<< src/app/app.module.ts
-
-=======
+    FavouriteBookComponent,
     ViewReviewsComponent
->>>>>>> src/app/app.module.ts
   ],
   imports: [
     BrowserModule,

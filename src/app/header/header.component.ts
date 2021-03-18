@@ -41,4 +41,7 @@ export class HeaderComponent implements OnInit {
     console.log("after routing");
     //window.location.reload();
   }
+  routeToFavourite() {
+    this.router.navigate(['favourite-book']);
+  }
 }

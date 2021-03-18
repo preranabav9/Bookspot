@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
+import { FavouriteBookComponent } from './favourite-book/favourite-book.component';
 import { LoginComponent } from './login/login.component';
 import { RequestResetComponent } from './request-reset/request-reset.component';
 import { RequestResponseComponent } from './request-response/request-response.component';
@@ -29,11 +29,13 @@ const routes: Routes = [
   },
   {
     path: "dashboard",
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [CanActivateGuard]
   },
   {
     path: "view-book",
-    component: ViewBookComponent
+    component: ViewBookComponent,
+    canActivate: [CanActivateGuard]
   },
   {
     path: "search",
@@ -56,11 +58,10 @@ const routes: Routes = [
   {
     path: 'request-response',
     component: RequestResponseComponent
-
   },
   {
     path: 'favourite-book',
-    component: FavoriteBookComponent
+    component: FavouriteBookComponent
   },
   {
     path:'about-us',
