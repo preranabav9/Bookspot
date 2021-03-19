@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ReviewDialogComponent } from '../review-dialog/review-dialog.component';
 import { BookService } from '../services/book.service';
 import { ReviewService } from '../services/review-service.service';
@@ -16,11 +17,13 @@ export class ViewBookComponent implements OnInit {
   book: any = [];
   reviews: any = [];
   favouriteButtonColor: string = "black";
-  favouriteButtonDisable: boolean = false;
+  favouriteId: number = 0;
+  favToolTip: string;
   constructor(private route: ActivatedRoute,
             private bookService: BookService,
             public dialog: MatDialog,
-            private reviewService: ReviewService) { }
+            private reviewService: ReviewService,
+            private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -31,8 +34,19 @@ export class ViewBookComponent implements OnInit {
       }
     );
     this.getReviewByBook();
+    this.getFavouriteBookStatus();
   }
-
+  getFavouriteBookStatus() {
+    this.bookService.getFavouriteBookStatus(this.isbn).subscribe(
+      response => {
+        if(response) {
+          this.favouriteId = response['id'];
+          this.favouriteButtonColor = "red";
+          this.favToolTip = "Remove from favourite";
+        }
+      }
+    )
+  }
   getBookById(bookId: string) {
     this.bookService.getBookByBookId(bookId).subscribe(
       response => {
@@ -77,17 +91,16 @@ export class ViewBookComponent implements OnInit {
       //this.dialogValue = result.data;
     });
   }
-  getUserbyId(id:number) {
-    this.bookService.getUserById(id).subscribe(
-      response => {
-        console.log(response);
-      }
-    )
-  }
+  // getUserbyId(id:number) {
+  //   this.bookService.getUserById(id).subscribe(
+  //     response => {
+  //       console.log(response);
+  //     }
+  //   )
+  // }
   getReviewByBook() {
     this.reviewService.getReviewsByBookISBN(this.isbn).subscribe(
       response => {
-        console.log("response", response);
         this.reviews = response;
       }
     )
@@ -103,34 +116,50 @@ export class ViewBookComponent implements OnInit {
       "bookDesc": this.book?.volumeInfo?.description
     };
     this.bookService.addRecommendation(data).subscribe(
-      response => {
-        console.log("book added successfully!");
+      response => { 
+        this.toastr.success("Added to Recommendation", "");
       },
       error=> {
-        console.log("error");
+        // this.toastr.error("Server Error", "Failed to load resources");
       }
     );
   }
   addToFavourite() {
-    const data = {
-      "bookName": this.book?.volumeInfo?.title,
-      "authorName": this.book?.volumeInfo?.authors[0],
-      "isbn": this.book?.volumeInfo?.industryIdentifiers[0].identifier,
-      "userid": localStorage.getItem('userId'),
-      "username": localStorage.getItem('userName'),
-      "bookImg": this.book?.volumeInfo?.imageLinks?.thumbnail,
-      "bookDesc": this.book?.volumeInfo?.description
-    };
-    this.bookService.addToFavourites(data).subscribe(
-      response => {
-        console.log("book added successfully!");
-        this.favouriteButtonColor = "red";
-        this.favouriteButtonDisable = true;
-      },
-      error=> {
-        console.log("error");
-      }
-    );
+    if(this.favouriteButtonColor === "red") {
+      this.bookService.deleteFromFavourite(this.favouriteId).subscribe(
+        response => {
+          console.log("response", response);
+          if(response === "success") {
+            this.favouriteButtonColor = "black";
+            this.favToolTip = "Add to Favourite";
+            this.toastr.success("Removed from Favourite", "");
+          } else {
+            this.toastr.error("Server Error", "Failed to load resources");
+          }
+        }
+      );
+    }
+    else {
+      const data = {
+        "bookName": this.book?.volumeInfo?.title,
+        "authorName": this.book?.volumeInfo?.authors[0],
+        "isbn": this.book?.volumeInfo?.industryIdentifiers[0].identifier,
+        "userid": localStorage.getItem('userId'),
+        "username": localStorage.getItem('userName'),
+        "bookImg": this.book?.volumeInfo?.imageLinks?.thumbnail,
+        "bookDesc": this.book?.volumeInfo?.description
+      };
+      this.bookService.addToFavourites(data).subscribe(
+        response => {
+          this.favouriteButtonColor = "red";
+          this.favToolTip = "Remove from Favourite";
+          this.toastr.success("Added to Favourite", "");
+        },
+        error=> {
+          this.toastr.error("Server Error", "Failed to load resources");
+        }
+      );
+    }
   }
 }
 

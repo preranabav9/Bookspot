@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
 import { FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-search-book',
@@ -13,10 +14,12 @@ export class SearchBookComponent implements OnInit {
   title: string;
   author: string;
   categoryBooks: any;
+  displayDiv: boolean = true;
   categoryList: string[] = ['Thriller', 'Horror'];
   isAuthenicate: boolean = false;
   constructor(private route: ActivatedRoute,
-            private bookService: BookService) { }
+            private bookService: BookService,
+            private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -43,9 +46,10 @@ export class SearchBookComponent implements OnInit {
       this.bookService.getBooksByFilter(category, author, title).subscribe(
         response => {
           this.categoryBooks = response['items'];
+          this.displayDiv = false;
           console.log(this.categoryBooks);
         }, error => {
-          console.log("error", error);
+          this.toastr.warning("No data found", "Please enter correct details");
         }
       )
   }

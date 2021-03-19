@@ -56,5 +56,10 @@ export class BookService {
   addToFavourites(data: any) {
     return this.httpClient.post(this.bookspotMongoApi+"/addFavouriteBook", data);
   }
-
+  getFavouriteBookStatus(isbn: string) {
+    return this.httpClient.get(this.bookspotMongoApi + "/findFavouriteBook/" + isbn + "/" +localStorage.getItem('userId'));
+  }
+  deleteFromFavourite(id: number) {
+    return this.httpClient.delete(this.bookspotMongoApi + "/deleteFavouriteBook/" + id,{responseType: 'text'});
+  }
 }

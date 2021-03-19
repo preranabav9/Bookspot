@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
   isAuthenicate: boolean = false;
   userRole: string;
   constructor(private router: Router,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.checkAuthentication();
@@ -39,6 +41,7 @@ export class HeaderComponent implements OnInit {
     console.log("before routing");
     this.router.navigate(['dashboard']);
     console.log("after routing");
+    this.toastr.success("Logout Successfully", "See you soon!");
     //window.location.reload();
   }
   routeToFavourite() {

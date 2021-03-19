@@ -8,24 +8,27 @@ import {AuthenticationService} from './services/authentication.service';
 export class CanActivateGuard implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router) {
   }
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    let flag = false;
-    console.log("in can activate");
-    if(localStorage.getItem('token') && localStorage.getItem('userId'))
-    {
-      const response = this.authService.isUserAuthenticated(localStorage.getItem('token'), localStorage.getItem('userId'));
-      console.log("response", response);
-      if (response) {
-        flag = true;
-      } else {
+  canActivate(route: ActivatedRouteSnapshot) {
+    const booleanPromise = this.authService.isUserAuthenticated(localStorage.getItem('token'), localStorage.getItem('userId'));
+    return booleanPromise.then((authenticated) => {
+      if (!authenticated) {
+        localStorage.clear();
+        window.location.reload();
         this.router.navigate(['dashboard']);
-        flag = false;
       }
-    } else {
-      flag = false;
-    }
-    return flag;
+      return authenticated;
+    });
+    // })
+    //     response => {
+    //       console.log("response", response);
+    //       if(response) {
+    //         return response;
+    //       } else {
+    //         window.location.reload();
+            
+    //         return false;
+    //       }
+    //     }
+    //   );
   }
 }

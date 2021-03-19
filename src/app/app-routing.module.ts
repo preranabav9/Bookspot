@@ -14,23 +14,26 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CanActivateGuard } from './can-activate.guard';
 
 const routes: Routes = [
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'recommendation',
-    component: RecommendationComponent
-    //, canActivate: [CanActivateGuard]
-  },
-  {
-    path:'register-success',
-    component: RegisterSuccessComponent
-  },
+  { path: '', redirectTo: "dashboard", pathMatch: 'full' },
   {
     path: "dashboard",
     component: DashboardComponent,
-    canActivate: [CanActivateGuard]
+  },
+  {
+    path: "search",
+    component: SearchBookComponent
+  },
+  {
+    path: "request-response",
+    component: RequestResponseComponent
+  },
+  {
+    path:"about-us",
+    component: AboutUsComponent
+  },
+  {
+    path: "register-success",
+    component: RegisterSuccessComponent
   },
   {
     path: "view-book",
@@ -38,34 +41,14 @@ const routes: Routes = [
     canActivate: [CanActivateGuard]
   },
   {
-    path: "search",
-    component: SearchBookComponent
-  },
-  {
-    path: 'recommendation',
+    path: "recommendation",
     component: RecommendationComponent,
     canActivate: [CanActivateGuard]
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'request-reset',
-    component: RequestResetComponent
-
-  },
-  {
-    path: 'request-response',
-    component: RequestResponseComponent
-  },
-  {
-    path: 'favourite-book',
-    component: FavouriteBookComponent
-  },
-  {
-    path:'about-us',
-    component: AboutUsComponent
+    path: "favourite-book",
+    component: FavouriteBookComponent,
+    canActivate: [CanActivateGuard]
   }
 ];
 

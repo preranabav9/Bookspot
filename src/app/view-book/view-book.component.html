@@ -3,7 +3,7 @@
         <div class="jumbotron book">
             <div class="row">
                 <div class="col-9">
-                    <h1>{{ book?.volumeInfo?.title }}<button style="float: right;" title = "Add to favourite" (click)="addToFavourite()"><i class="fa fa-heart icon fa-1x" [style.color] = "favouriteButtonColor"></i></button></h1><!--[disabled] = "favouriteButtonDisable"-->
+                    <h1>{{ book?.volumeInfo?.title }}<button style="float: right;" title = "{{ favToolTip }}" (click)="addToFavourite()"><i class="fa fa-heart icon fa-1x" [style.color] = "favouriteButtonColor"></i></button></h1>
                     <h3>{{ book?.volumeInfo?.authors }}</h3>
                     <p class="lead description">{{ book?.volumeInfo?.description }}</p>
                     <p><a href="{{ book?.accessInfo?.webReaderLink  }}" target="_blank" class="btn btn-info" style="color: black;">Start Reading</a> &nbsp;&nbsp;&nbsp;
