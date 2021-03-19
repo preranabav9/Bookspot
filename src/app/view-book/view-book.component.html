@@ -3,10 +3,11 @@
         <div class="jumbotron book">
             <div class="row">
                 <div class="col-9">
-                    <h1>{{ book?.volumeInfo?.title }}</h1>
+                    <h1>{{ book?.volumeInfo?.title }}<button style="float: right;" title = "Add to favourite" (click)="addToFavourite()"><i class="fa fa-heart icon fa-1x" style="color: black;"></i></button></h1>
                     <h3>{{ book?.volumeInfo?.authors }}</h3>
                     <p class="lead description">{{ book?.volumeInfo?.description }}</p>
-                    <p><a href="{{ book?.accessInfo?.webReaderLink  }}" target="_blank" class="btn btn-info ">Start Reading</a></p>
+                    <p><a href="{{ book?.accessInfo?.webReaderLink  }}" target="_blank" class="btn btn-info" style="color: black;">Start Reading</a> &nbsp;&nbsp;&nbsp;
+                    <a (click)="addToRecommendation()" class="btn btn-info">Add to Recommendation</a></p>
                 </div>
                 <div class="col-3 text-center">
                     <img class="img-thumbnail" src="{{ book?.volumeInfo?.imageLinks?.thumbnail }}" alt="book cover page" width="200px" height="250px"/>
@@ -17,7 +18,8 @@
                 <h2><b>REVIEWS</b></h2>
                 <div class="row review-button">
                     <div class="col-9">
-                        <p *ngFor="let review of reviews">{{ review.userId }}&nbsp;{{ review?.review }}</p>
+                        <p *ngFor="let review of reviews|slice:0:2;">{{ review.userName }}: &nbsp;{{ review?.review }}</p>
+                        <button style="float: right;" *ngIf="reviews.length > 2" (click) = "openViewReviewDialog()">view {{reviews.length - 2}} more</button>
                     </div>
                     <div class="col-3">
                         <a class="review-policy" href="https://play.google.com/about/comment-posting-policy/" target="_blank">

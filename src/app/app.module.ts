@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,9 +24,9 @@ import{ Ng2OrderModule} from 'ng2-order-pipe'
 import { RequestResponseComponent } from './request-response/request-response.component';
 import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
 import { AdminComponent } from './admin/admin.component';
-
-
-
+import { AuthenticationService } from './services/authentication.service';
+import { CanActivateGuard } from './can-activate.guard';
+import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AdminComponent } from './admin/admin.component';
     RequestResetComponent,
     RequestResponseComponent,
     FavoriteBookComponent,
-    AdminComponent
+    AdminComponent,
+    ViewReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +61,11 @@ import { AdminComponent } from './admin/admin.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule ,
-    Ng2OrderModule
+    Ng2OrderModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthenticationService,
+              CanActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
