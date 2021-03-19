@@ -43,18 +43,18 @@ export class BookService {
     return this.httpClient.get(this.bookspotJPAApi+"/getUser/"+id); //New Request
   }
 
-  getBookByRecommend(){
+  getUserDetails(id: number){
+    return this.httpClient.get(this.bookspotJPAApi+"/ getUserDetails/"+id); 
+  }
+getBookByRecommend(){
     return this.httpClient.get(this.bookspotMongoApi+"/getallrecommend");
   }
-  getBookByfavourite(userId: number){
+   getBookByfavourite(userId: number){
     return this.httpClient.get(this.bookspotMongoApi+"/getFavouriteBooksByUserId/"+userId);
-  }
-
-  addRecommendation(data: any) {
-    return this.httpClient.post(this.bookspotMongoApi+"/addtorecommend", data);
-  }
-  addToFavourites(data: any) {
-    return this.httpClient.post(this.bookspotMongoApi+"/addFavouriteBook", data);
+<<<<<<< src/app/services/book.service.ts
+=======
+ 
+>>>>>>> src/app/services/book.service.ts
   }
   getFavouriteBookStatus(isbn: string) {
     return this.httpClient.get(this.bookspotMongoApi + "/findFavouriteBook/" + isbn + "/" +localStorage.getItem('userId'));
@@ -62,4 +62,16 @@ export class BookService {
   deleteFromFavourite(id: number) {
     return this.httpClient.delete(this.bookspotMongoApi + "/deleteFavouriteBook/" + id,{responseType: 'text'});
   }
+  addRecommendation(data: any) {
+    return this.httpClient.post(this.bookspotMongoApi+"/addtorecommend", data);
+  }
+  addToFavourites(data: any) {
+    return this.httpClient.post(this.bookspotMongoApi+"/addFavouriteBook", data);
+  }
+<<<<<<< src/app/services/book.service.ts
+
+
+=======
+  
+>>>>>>> src/app/services/book.service.ts
 }

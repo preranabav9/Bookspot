@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
+import { AdminComponent } from './admin/admin.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CanActivateGuard } from './can-activate.guard';
 
@@ -45,10 +46,16 @@ const routes: Routes = [
     component: RecommendationComponent,
     canActivate: [CanActivateGuard]
   },
+    path: 'admin',
+    component: AdminComponent
+  },
   {
+<<<<<<< src/app/app-routing.module.ts
+=======
     path: "favourite-book",
     component: FavouriteBookComponent,
     canActivate: [CanActivateGuard]
+>>>>>>> src/app/app-routing.module.ts
   }
 ];
 

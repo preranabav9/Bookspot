@@ -20,12 +20,18 @@ import { SearchBookComponent } from './search-book/search-book.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RecommendationComponent } from './recommendation/recommendation.component'
 import { RequestResetComponent } from './request-reset/request-reset.component';
+import{ Ng2OrderModule} from 'ng2-order-pipe'
 import { RequestResponseComponent } from './request-response/request-response.component';
-import { FavouriteBookComponent } from './favourite-book/favourite-book.component';
-
+import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
+import { AdminComponent } from './admin/admin.component';
 import { AuthenticationService } from './services/authentication.service';
 import { CanActivateGuard } from './can-activate.guard';
 import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
+<<<<<<< src/app/app.module.ts
+
+=======
+>>>>>>> src/app/app.module.ts
+
 
 @NgModule({
   declarations: [
@@ -44,8 +50,12 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     RecommendationComponent,
     RequestResetComponent,
     RequestResponseComponent,
-    FavouriteBookComponent,
+<<<<<<< src/app/app.module.ts
+    FavoriteBookComponent,
+    AdminComponent,
     ViewReviewsComponent
+=======
+>>>>>>> src/app/app.module.ts
   ],
   imports: [
     BrowserModule,
@@ -58,7 +68,8 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     HttpClientModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule ,
+    Ng2OrderModule,
     ToastrModule.forRoot()
   ],
   providers: [CanActivateGuard,
