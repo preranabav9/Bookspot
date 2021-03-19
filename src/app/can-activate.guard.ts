@@ -13,6 +13,7 @@ export class CanActivateGuard implements CanActivate {
     return booleanPromise.then((authenticated) => {
       if (!authenticated) {
         localStorage.clear();
+        window.location.reload();
         this.router.navigate(['dashboard']);
       }
       return authenticated;

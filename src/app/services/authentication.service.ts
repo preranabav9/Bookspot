@@ -12,9 +12,6 @@ export class AuthenticationService {
   //   return this.httpClient.post(, data);
   // }
   isUserAuthenticated(token, userId){
-    const header = {
-      headers: new HttpHeaders().set('Authorization', `${token}`)
-    };
     const data = {
       "id": userId,
       "token": token

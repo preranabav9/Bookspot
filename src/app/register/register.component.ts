@@ -40,6 +40,7 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         if(this.registerForm.invalid) {
+            this.toastr.error("Please fill all the details", "Invalid Data");
             return;
         }
         this.userService.register(this.registerForm.value).subscribe(
