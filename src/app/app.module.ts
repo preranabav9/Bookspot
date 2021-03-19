@@ -19,9 +19,11 @@ import { SearchBookComponent } from './search-book/search-book.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RecommendationComponent } from './recommendation/recommendation.component'
 import { RequestResetComponent } from './request-reset/request-reset.component';
-
+import{ Ng2OrderModule} from 'ng2-order-pipe'
 import { RequestResponseComponent } from './request-response/request-response.component';
 import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
+import { AdminComponent } from './admin/admin.component';
+
 
 
 
@@ -42,7 +44,8 @@ import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
     RecommendationComponent,
     RequestResetComponent,
     RequestResponseComponent,
-    FavoriteBookComponent
+    FavoriteBookComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
     HttpClientModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    Ng2OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -39,11 +39,17 @@ export class BookService {
     return this.httpClient.get(this.bookspotJPAApi+"/getUser/"+id); //New Request
   }
 
-  getBookByRecommend(){
+  getUserDetails(id: number){
+    return this.httpClient.get(this.bookspotJPAApi+"/ getUserDetails/"+id); 
+  }
+getBookByRecommend(){
     return this.httpClient.get(this.bookspotMongoApi+"/getallrecommend");
   }
+
+
   getBookByfavourite(){
     return this.httpClient.get(this.bookspotMongoApi+"/getBookByfavourite()");
   }
+
 
 }

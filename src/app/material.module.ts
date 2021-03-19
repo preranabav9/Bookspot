@@ -34,6 +34,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTooltipModule,
     MatDialogModule,
     MatGridListModule
+  
   ],
   exports: [
     MatToolbarModule,
