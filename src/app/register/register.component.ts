@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 // import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../helpers/must-match.validator';
@@ -18,7 +19,9 @@ export class RegisterComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private userService: UserService,
-                private router: Router) { }
+                private router: Router,
+                private toastr: ToastrService
+                ) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -41,11 +44,12 @@ export class RegisterComponent implements OnInit {
         }
         this.userService.register(this.registerForm.value).subscribe(
             result => {
-                console.log(result);
+                window.location.reload();
+                this.toastr.success("Registration Successful", "Please login!!!");
                 this.router.navigate(['register-success']); //if the activation is successful only then register-success.
             },
             error => {
-                console.log(error);
+                this.toastr.error("Server Error", "Failed to load resources");
             }
         );
         this.submitted = true;

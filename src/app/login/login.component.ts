@@ -36,12 +36,13 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginForm.value).subscribe(
       response => {
         if(response['id']) {
-          //this.toastr.s('Hello world!', 'Toastr fun!');
+          this.toastr.success("Login Successful", "Welcome back!");
           localStorage.setItem('userId', response['id']);
           localStorage.setItem('userName', response['firstName'] + " " +response['lastName']);
           localStorage.setItem('role', response['role']);
           localStorage.setItem('token', response['token']);
           window.location.reload();
+          this.router.navigate(['dashboard']);
         } else {
           console.log("user not found");
         }

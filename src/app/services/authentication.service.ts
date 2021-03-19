@@ -11,12 +11,16 @@ export class AuthenticationService {
   // authenticateUser(data) {
   //   return this.httpClient.post(, data);
   // }
-  isUserAuthenticated(token, userId): Promise<any> {
+  isUserAuthenticated(token, userId){
     const header = {
       headers: new HttpHeaders().set('Authorization', `${token}`)
     };
-    return this.httpClient.post(this.authURL + 'authenicate/'+userId, {token: token}).
+    const data = {
+      "id": userId,
+      "token": token
+    }
+    return this.httpClient.post(this.authURL + 'authenicate', data).
     pipe
-    (map(response => response['isAuthenticated'])).toPromise();
+    (map(response => response['isAuthenticated'])).toPromise();;
   }
 }

@@ -61,8 +61,8 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     ReactiveFormsModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthenticationService,
-              CanActivateGuard],
+  providers: [CanActivateGuard,
+            AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
