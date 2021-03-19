@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { ReviewService } from '../services/review-service.service';
 @Component({
   selector: 'app-review-dialog',
@@ -12,7 +13,8 @@ export class ReviewDialogComponent implements OnInit {
   review: string = "";
   constructor(public dialogRef: MatDialogRef<ReviewDialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-    private reviewService: ReviewService) { 
+    private reviewService: ReviewService,
+    private toastr: ToastrService) { 
       this.dialogData = data;
     }
 
@@ -28,9 +30,11 @@ export class ReviewDialogComponent implements OnInit {
   };
     this.reviewService.addReview(data).subscribe(
       result => {
+        this.toastr.success("Review Added", "");
         this.dialogRef.close();
       },
       error => {
+        this.toastr.error("Server Error", "Failed to load resources");
         console.log(error);
       }
     )

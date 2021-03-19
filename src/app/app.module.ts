@@ -27,6 +27,11 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthenticationService } from './services/authentication.service';
 import { CanActivateGuard } from './can-activate.guard';
 import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
+<<<<<<< src/app/app.module.ts
+
+=======
+>>>>>>> src/app/app.module.ts
+
 
 @NgModule({
   declarations: [
@@ -45,9 +50,12 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     RecommendationComponent,
     RequestResetComponent,
     RequestResponseComponent,
+<<<<<<< src/app/app.module.ts
     FavoriteBookComponent,
     AdminComponent,
     ViewReviewsComponent
+=======
+>>>>>>> src/app/app.module.ts
   ],
   imports: [
     BrowserModule,
@@ -64,8 +72,8 @@ import { ViewReviewsComponent } from './view-reviews/view-reviews.component';
     Ng2OrderModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthenticationService,
-              CanActivateGuard],
+  providers: [CanActivateGuard,
+            AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

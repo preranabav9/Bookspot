@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FavoriteBookComponent } from './favorite-book/favorite-book.component';
+import { FavouriteBookComponent } from './favourite-book/favourite-book.component';
 import { LoginComponent } from './login/login.component';
 import { RequestResetComponent } from './request-reset/request-reset.component';
 import { RequestResponseComponent } from './request-response/request-response.component';
@@ -15,61 +15,47 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CanActivateGuard } from './can-activate.guard';
 
 const routes: Routes = [
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'recommendation',
-    component: RecommendationComponent
-    //, canActivate: [CanActivateGuard]
-  },
-  {
-    path:'register-success',
-    component: RegisterSuccessComponent
-  },
+  { path: '', redirectTo: "dashboard", pathMatch: 'full' },
   {
     path: "dashboard",
-    component: DashboardComponent
-  },
-  {
-    path: "view-book",
-    component: ViewBookComponent
+    component: DashboardComponent,
   },
   {
     path: "search",
     component: SearchBookComponent
   },
   {
-    path: 'recommendation',
-    component: RecommendationComponent,
+    path: "request-response",
+    component: RequestResponseComponent
+  },
+  {
+    path:"about-us",
+    component: AboutUsComponent
+  },
+  {
+    path: "register-success",
+    component: RegisterSuccessComponent
+  },
+  {
+    path: "view-book",
+    component: ViewBookComponent,
     canActivate: [CanActivateGuard]
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: "recommendation",
+    component: RecommendationComponent,
+    canActivate: [CanActivateGuard]
   },
-  {
-    path: 'request-reset',
-    component: RequestResetComponent
-
-  },
-  {
-    path: 'request-response',
-    component: RequestResponseComponent
-
-  },
-  {
-    path: 'favourite-book',
-    component: FavoriteBookComponent
-  },
-  {
     path: 'admin',
     component: AdminComponent
   },
   {
-    path:'about-us',
-    component: AboutUsComponent
+<<<<<<< src/app/app-routing.module.ts
+=======
+    path: "favourite-book",
+    component: FavouriteBookComponent,
+    canActivate: [CanActivateGuard]
+>>>>>>> src/app/app-routing.module.ts
   }
 ];
 

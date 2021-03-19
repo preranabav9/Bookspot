@@ -3,6 +3,7 @@ import { BookService } from '../services/book.service';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
   books: any;
   categoryBooks: any;
   constructor(private bookService: BookService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.checkAuthentication();
@@ -60,5 +62,8 @@ export class DashboardComponent implements OnInit {
         console.log("error", error);
       }
     );
+  }
+  routeToFavourite() {
+    this.router.navigate(['favourite-book']);
   }
 }

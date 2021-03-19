@@ -29,7 +29,7 @@
                         <button class="main-menu" mat-button [matMenuTriggerFor]="menu">My Profile</button>
                         <mat-menu #menu="matMenu" style="padding-top: 0px; padding-bottom: 0px;">
                             <!-- <button class="sub-menu" style="border-bottom: 1px solid black;border-top: 0px;" mat-menu-item>View profile</button> -->
-                            <button class="sub-menu" style="border-bottom: 1px solid black;" mat-menu-item>Favourites</button>
+                            <button (click)="routeToFavourite()" class="sub-menu" style="border-bottom: 1px solid black;" mat-menu-item>Favourites</button>
                             <button class="sub-menu" style="border-bottom: 1px solid black;" mat-menu-item *ngIf="userRole === admin">View Users</button>
                             <button class="sub-menu" mat-menu-item (click)="logout()">Logout</button>
                         </mat-menu>
