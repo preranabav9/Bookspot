@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-request-reset',
   templateUrl:'./request-reset.component.html',
@@ -11,14 +14,14 @@ resetForm: FormGroup;
   submitted = false;
   
 
-  constructor(private formBuilder: FormBuilder,private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder,
+            private userService: UserService,
+            private toastrService: ToastrService,
+            private router: Router) { }
 
   ngOnInit() {
       this.resetForm= this.formBuilder.group({
-         
           email: ['', [Validators.required, Validators.email]]
-        
-         
       }, );
   }
 
@@ -26,20 +29,17 @@ resetForm: FormGroup;
   get f() { return this.resetForm.controls; }
 
   onSubmit() {
-    console.log("value12",this.resetForm.get('email'));
-   this.userService.forgetpassword(this.resetForm.value.email).subscribe(
-       result => {
-         console.log(result);
-       }
-     )
-     
-
-     this.submitted = true;
-
-     // stop here if form is invalid
-     if (this.resetForm.invalid) {
-         return;
-     }
- }
+    if (this.resetForm.invalid) {
+      this.toastrService.error("Please enter email Id", "Invalid Details");
+      return;
+    }
+    this.userService.forgetpassword(this.resetForm.value.email).subscribe(
+      result => {
+        this.router.navigate(['dashboard']);
+        this.toastrService.success("Check you email", "Reset Initiated");
+      }
+    )
+    this.submitted = true;
+  }
 }
 

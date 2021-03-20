@@ -49,29 +49,25 @@ export class BookService {
 getBookByRecommend(){
     return this.httpClient.get(this.bookspotMongoApi+"/getallrecommend");
   }
-   getBookByfavourite(userId: number){
+  getBookByfavourite(userId: number){
     return this.httpClient.get(this.bookspotMongoApi+"/getFavouriteBooksByUserId/"+userId);
-<<<<<<< src/app/services/book.service.ts
-=======
- 
->>>>>>> src/app/services/book.service.ts
   }
   getFavouriteBookStatus(isbn: string) {
     return this.httpClient.get(this.bookspotMongoApi + "/findFavouriteBook/" + isbn + "/" +localStorage.getItem('userId'));
   }
+  getRecommendationStatus(isbn: string) {
+    return this.httpClient.get(this.bookspotMongoApi + "/findRecommendedBook/" + isbn + "/" +localStorage.getItem('userId'));
+  }
   deleteFromFavourite(id: number) {
     return this.httpClient.delete(this.bookspotMongoApi + "/deleteFavouriteBook/" + id,{responseType: 'text'});
   }
+  deleteFromRecommendation(id: number) {
+    return this.httpClient.delete(this.bookspotMongoApi + "/deleteRecommendedBook/" + id,{responseType: 'text'});
+  }
   addRecommendation(data: any) {
-    return this.httpClient.post(this.bookspotMongoApi+"/addtorecommend", data);
+    return this.httpClient.post(this.bookspotMongoApi+"/addToRecommendation", data, {responseType: 'text'});
   }
   addToFavourites(data: any) {
-    return this.httpClient.post(this.bookspotMongoApi+"/addFavouriteBook", data);
+    return this.httpClient.post(this.bookspotMongoApi+"/addFavouriteBook", data, {responseType: 'text'});
   }
-<<<<<<< src/app/services/book.service.ts
-
-
-=======
-  
->>>>>>> src/app/services/book.service.ts
 }

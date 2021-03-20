@@ -1,40 +1,39 @@
 
-
-<div class="text">
-<h1>Users</h1>
-</div>
-
-<div class="container">
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th (click)="sort('id')">ID&nbsp;<i class="fa fa-sort"></i></th>
-        <th (click)="sort('id')">Firstname&nbsp;<i class="fa fa-sort"></i></th>
-        <th (click)="sort('id')">Lastname&nbsp;<i class="fa fa-sort"></i></th>
-        <th (click)="sort('id')">Email&nbsp;<i class="fa fa-sort"></i></th>
-      
-        <th>Update</th>
-        
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of user | orderBy: key: reverse">
-        <td><span>{{user.id}}</span></td>
-        <td><span>{{user.firstName}}</span></td>
-        <td><span>{{user.lastName}}</span></td>
-        <td><span>{{user.email}}</span></td>
-       
-      
-
-        <td >
-           
-             
-            <button class="btn btn-sm btn-danger"(click)="onDelete(user)">
-              <i class="fa fa-remove"></i>Delete</button>
-          </td>
-      </tr>
+<!-- <div class="text">
+  <h1>Users</h1>
+</div> -->
+<div class="wrapper">
+  <app-header></app-header>
+  <div class="text">
+    <h1>Users</h1>
+  </div>
+  <div class="container">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th (click)="sort('id')">ID&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="sort('firstName')">Firstname&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="sort('lastName')">Lastname&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="sort('email')">Email&nbsp;<i class="fa fa-sort"></i></th>
+          <th (click)="sort('role')">Role&nbsp;<i class="fa fa-sort"></i></th>
+          <th>Action</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of user | orderBy: key: reverse">
+          <td><span>{{user.id}}</span></td>
+          <td><span>{{user.firstName}}</span></td>
+          <td><span>{{user.lastName}}</span></td>
+          <td><span>{{user.email}}</span></td>
+          <td><span>{{user.role | uppercase}}</span></td>
+          <td >
+              <button class="btn btn-sm btn-danger"(click)="onDelete(user)" *ngIf="user.role != 'admin'">
+                <i class="fa fa-remove"></i>Delete</button>
+            </td>
+        </tr>
       </tbody>
-
-
     </table>
- </div>
+  </div>
+  <app-footer></app-footer>
+</div>

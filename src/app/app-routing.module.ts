@@ -25,7 +25,7 @@ const routes: Routes = [
     component: SearchBookComponent
   },
   {
-    path: "request-response",
+    path: "request-response/:userId",
     component: RequestResponseComponent
   },
   {
@@ -46,16 +46,15 @@ const routes: Routes = [
     component: RecommendationComponent,
     canActivate: [CanActivateGuard]
   },
-    path: 'admin',
-    component: AdminComponent
+  {
+    path: 'view-users',
+    component: AdminComponent,
+    canActivate: [CanActivateGuard]
   },
   {
-<<<<<<< src/app/app-routing.module.ts
-=======
     path: "favourite-book",
     component: FavouriteBookComponent,
     canActivate: [CanActivateGuard]
->>>>>>> src/app/app-routing.module.ts
   }
 ];
 
