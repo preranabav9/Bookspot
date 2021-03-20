@@ -19,6 +19,8 @@ export class ViewBookComponent implements OnInit {
   favouriteButtonColor: string = "black";
   favouriteId: number = 0;
   favToolTip: string;
+  recommededId: number = 0;
+  recommendBtnText: string = "Add to Recommendation";
   constructor(private route: ActivatedRoute,
             private bookService: BookService,
             public dialog: MatDialog,
@@ -35,6 +37,7 @@ export class ViewBookComponent implements OnInit {
     );
     this.getReviewByBook();
     this.getFavouriteBookStatus();
+    this.getRecommendationStatus();
   }
   getFavouriteBookStatus() {
     this.bookService.getFavouriteBookStatus(this.isbn).subscribe(
@@ -43,6 +46,16 @@ export class ViewBookComponent implements OnInit {
           this.favouriteId = response['id'];
           this.favouriteButtonColor = "red";
           this.favToolTip = "Remove from favourite";
+        }
+      }
+    )
+  }
+  getRecommendationStatus() {
+    this.bookService.getRecommendationStatus(this.isbn).subscribe(
+      response => {
+        if(response) {
+          this.recommededId = response['id'];
+          this.recommendBtnText = "Remove from Recommendation";
         }
       }
     )
@@ -106,23 +119,41 @@ export class ViewBookComponent implements OnInit {
     )
   }
   addToRecommendation() {
-    const data = {
-      "bookName": this.book?.volumeInfo?.title,
-      "authorName": this.book?.volumeInfo?.authors[0],
-      "isbn": this.book?.volumeInfo?.industryIdentifiers[0].identifier,
-      "userid": localStorage.getItem('userId'),
-      "username": localStorage.getItem('userName'),
-      "bookImg": this.book?.volumeInfo?.imageLinks?.thumbnail,
-      "bookDesc": this.book?.volumeInfo?.description
-    };
-    this.bookService.addRecommendation(data).subscribe(
-      response => { 
-        this.toastr.success("Added to Recommendation", "");
-      },
-      error=> {
-        // this.toastr.error("Server Error", "Failed to load resources");
-      }
-    );
+    if(this.recommendBtnText === "Remove from Recommendation") {
+      this.bookService.deleteFromRecommendation(this.recommededId).subscribe(
+        response => {
+          console.log("response", response);
+          if(response === "success") {
+            this.recommendBtnText = "Add to Recommendation";
+            this.toastr.success("Removed from recommendation", "");
+          } else {
+            this.toastr.error("Server Error", "Failed to load resources");
+          }
+        }
+      );
+    } else {
+      console.log("in else");
+      const data = {
+        "bookName": this.book?.volumeInfo?.title,
+        "authorName": this.book?.volumeInfo?.authors[0],
+        "isbn": this.book?.volumeInfo?.industryIdentifiers[0].identifier,
+        "userid": localStorage.getItem('userId'),
+        "username": localStorage.getItem('userName'),
+        "bookImg": this.book?.volumeInfo?.imageLinks?.thumbnail,
+        "bookDesc": this.book?.volumeInfo?.description
+      };
+      this.bookService.addRecommendation(data).subscribe(
+        response => { 
+          if(response === "success") {
+            console.log("response", response);
+            this.recommendBtnText = "Remove from Recommendation";
+            this.toastr.success("Added to Recommendation", "");
+          } else {
+            this.toastr.error("Server Error", "Failed to load resources");
+          }
+        }
+      );
+    }
   }
   addToFavourite() {
     if(this.favouriteButtonColor === "red") {

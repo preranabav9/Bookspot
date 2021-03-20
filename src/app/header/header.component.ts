@@ -35,16 +35,19 @@ export class HeaderComponent implements OnInit {
     });
   }
   logout() {
-    console.log("in logout");
     localStorage.clear();
     this.isAuthenicate = false;
-    console.log("before routing");
     this.router.navigate(['dashboard']);
-    console.log("after routing");
     this.toastr.success("Logout Successfully", "See you soon!");
-    //window.location.reload();
+
+  }
+  routeToViewUser() {
+    this.router.navigate(['view-users']);
   }
   routeToFavourite() {
     this.router.navigate(['favourite-book']);
+  }
+  getUserRole(){
+    return (localStorage.getItem('role'));
   }
 }

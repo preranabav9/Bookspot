@@ -7,7 +7,7 @@
                     <h3>{{ book?.volumeInfo?.authors }}</h3>
                     <p class="lead description">{{ book?.volumeInfo?.description }}</p>
                     <p><a href="{{ book?.accessInfo?.webReaderLink  }}" target="_blank" class="btn btn-info" style="color: black;">Start Reading</a> &nbsp;&nbsp;&nbsp;
-                    <a (click)="addToRecommendation()" class="btn btn-info">Add to Recommendation</a></p>
+                    <a (click)="addToRecommendation()" class="btn btn-info">{{recommendBtnText}}</a></p>
                 </div>
                 <div class="col-3 text-center">
                     <img class="img-thumbnail" src="{{ book?.volumeInfo?.imageLinks?.thumbnail }}" alt="book cover page" width="200px" height="250px"/>
