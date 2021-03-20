@@ -19,7 +19,7 @@ describe('SearchBookComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  /*it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  });*/
 });

@@ -45,7 +45,10 @@ it('should set submitted true',(()=>{
   component.onSubmit();
   expect(component.submitted).toBeTruthy();
 }));
-
+it('should contain div tag', () => {
+   let element = fixture.debugElement.query(By.css('div'));
+  expect(element).toBeTruthy();
+  });
 it('call on submit',(()=>{
 
 spyOn(component,'onSubmit') ;
