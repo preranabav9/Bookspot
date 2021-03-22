@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-// import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../helpers/must-match.validator';
 import { UserService } from '../services/user.service';
 
