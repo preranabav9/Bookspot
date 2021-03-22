@@ -32,23 +32,23 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    
+    this.router.navigate(['dashboard']);
     this.userService.login(this.loginForm.value).subscribe(
       response => {
         if(response['id']) {
-          this.toastr.success("Login Successful", "Welcome back!");
           localStorage.setItem('userId', response['id']);
           localStorage.setItem('userName', response['firstName'] + " " +response['lastName']);
           localStorage.setItem('role', response['role']);
           localStorage.setItem('token', response['token']);
+          this.dialog.closeAll();
           window.location.reload();
-          this.router.navigate(['dashboard']);
+          this.toastr.success("Login Successful", "Welcome back!");
         } else {
-          console.log("user not found");
+          this.toastr.success("Please try again", "Invalid Credential!!!");
         }
       },
       error => {
-        console.log("user not found exception");
+        this.toastr.error("Please try again", "Invalid Credential!!!");
       }
     );
     this.submitted = true;

@@ -19,11 +19,14 @@ export class UserService {
     
   }
   forgetpassword(email: string){
-    return this.httpClient.get(this.api + "send-otp/"+email);
+    return this.httpClient.get(this.api + "forgot-password/"+email);
   }
 
-  responseForm(user:any){
-    return this.httpClient.post(this.api + "updateCustomer", user); 
+  resetPassword(user:any, userId: number){
+    return this.httpClient.put(this.api + "updateUser/"+userId, user); 
+  }
+  deleteStudent(id){
+    return this.httpClient.delete(this.api + "deleteUser/" + id); 
   }
 }
 

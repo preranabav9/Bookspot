@@ -23,6 +23,12 @@
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "@material/dialog": "^10.0.0",
+    "ng2-order-pipe": "^0.1.5",
+<<<<<<< package.json
+    
+=======
+    
+>>>>>>> package.json
     "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

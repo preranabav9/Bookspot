@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
     constructor(private formBuilder: FormBuilder,
                 private userService: UserService,
                 private router: Router,
-                private toastr: ToastrService
+                private toastr: ToastrService,
+                private dialog: MatDialog
                 ) { }
 
     ngOnInit() {
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
         }
         this.userService.register(this.registerForm.value).subscribe(
             result => {
-                window.location.reload();
+                this.dialog.closeAll();
                 this.toastr.success("Registration Successful", "Please login!!!");
                 this.router.navigate(['register-success']); //if the activation is successful only then register-success.
             },

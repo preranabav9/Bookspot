@@ -1,0 +1,27 @@
+.text{
+  text-align: center;
+}
+.text h1 {
+  color: white;
+  margin-top: 10%;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.container{
+  margin-top: 2%;
+  background-color: white;
+  width: 100%;
+}
+.border{
+  padding: 10px;
+}
+.btn{
+  margin-right: 10px;
+}
+.fa {
+  margin-right: 10px;
+}
+table .btn{
+  margin: 2px;
+}
+
